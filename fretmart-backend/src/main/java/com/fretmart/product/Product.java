@@ -1,11 +1,6 @@
 package com.fretmart.product;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -20,32 +15,30 @@ import java.time.LocalDateTime;
 public class Product{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @NotBlank(message = "Product name cannot be blank")
-    @Column(nullable = false)
+    @Column(nullable = false,length = 255)
     private String name;
 
-    @Column(length = 2000)
+    @Column(length = 5000)
     private String description;
 
+    @Column(length = 50)
     private String category;
 
-    @NotNull(message = "Price is required")
-    @Positive(message = "Price must be a positive value")
     @Column(nullable = false,precision = 10,scale = 2)
     private BigDecimal price;
 
-    @Min(value = 0,message = "Stock cannot be negative")
     @Column(nullable = false)
     private Integer stock;
 
+    @Column(name = "image_url",length = 500)
     private String imageUrl;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at",nullable = false,updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist

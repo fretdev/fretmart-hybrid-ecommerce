@@ -6,7 +6,7 @@ The core engineering focus of FretMart is its **Hybrid Data Layer**, strategical
 
 ---
 
-## 🛠️ System Architecture & Tech Stack
+## System Architecture & Tech Stack
 
 
 
@@ -31,7 +31,7 @@ The core engineering focus of FretMart is its **Hybrid Data Layer**, strategical
 
 ---
 
-## 🚀 Architectural Deep Dive & Code Standards
+## Architectural Deep Dive & Code Standards
 
 ### 1. The Hybrid Persistence Paradigm
 To balance developer velocity with raw performance, FretMart implements a unique two-pronged database strategy:
@@ -46,7 +46,7 @@ Entities leverage JPA lifecycle callbacks (`@PrePersist` and `@PreUpdate`) to gu
 
 ---
 
-## 📅 Platform Engineering & Implementation Roadmap
+## Platform Engineering & Implementation Roadmap
 
 The development of FretMart is executed across an structured 8-week production schedule:
 
@@ -74,9 +74,9 @@ The development of FretMart is executed across an structured 8-week production s
 
 ---
 
-## 📡 Core API Portfolio Reference
+## Core API Portfolio Reference
 
-### 📦 Product Resources Map
+### Product Resources Map
 
 | HTTP Method | API URL Endpoint | Functional Scope | Parameters / Payload Constraints |
 | :--- | :--- | :--- | :--- |
@@ -99,7 +99,7 @@ The development of FretMart is executed across an structured 8-week production s
   "imageUrl": "[https://example.com/images/strat.jpg](https://example.com/images/strat.jpg)"
 }
 
-🛑 Local Setup & Execution Guide
+Local Setup & Execution Guide
 1. Environment Configurations
 To run this application locally, populate a valid configuration layer inside your application resources:
 
