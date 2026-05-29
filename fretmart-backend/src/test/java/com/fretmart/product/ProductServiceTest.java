@@ -232,21 +232,23 @@ class ProductServiceTest {
         @Test
         @DisplayName("Should delete product successfully when ID exists")
         void deleteProduct_ShouldDelete_WhenIdExists() {
-            doNothing().when(productRepository).deleteById(1L);
+            when(productRepository.existsById(1L)).thenReturn(true);
 
             productService.deleteProduct(1L);
 
             verify(productRepository, times(1)).deleteById(1L);
+            verify(productRepository,times(1)).existsById(1L);
         }
 
         @Test
         @DisplayName("Should not throw exception when deleting non-existent product")
         void deleteProduct_ShouldNotThrowException_WhenProductNotFound() {
-            doNothing().when(productRepository).deleteById(999L);
+            when(productRepository.existsById(999L)).thenReturn(false);
 
-            productService.deleteProduct(999L);
+            assertThatThrownBy(()->productService.deleteProduct(999L)).isInstanceOf(ProductNotFoundException.class).hasMessage("Product not found with id: 999");
 
-            verify(productRepository, times(1)).deleteById(999L);
+            verify(productRepository,times(1)).existsById(999L);
+            verify(productRepository, never()).deleteById(anyLong());
         }
     }
 
