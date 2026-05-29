@@ -111,10 +111,16 @@ The development of FretMart is executed across an structured 8-week production s
 }
 ```
 
+## System Architecture & Directory Blueprint
+
+The frontend application uses a strict modular directory layout to keep components decoupled and scalable.
+
+```text
 src/
-├─── assets/ # Graphic assets, brand logos, and global SVG resources
-├─── components/ # Atomic, reusable UI elements (Buttons, Inputs, ProductCards, Navbar)
-├─── context/ # Global state providers (CartContext, Security/Auth sharing)
-├─── hooks/ # Custom reusable React hooks to isolate stateful operations
-├─── services/ # Centralized API network modules (Axios/Fetch HTTP channels)
-└─── views/ # Full page layouts (HomeView, ProductDetailView, DashboardView)
+├── assets/
+├── components/
+├── context/
+├── hooks/
+├── services/
+└── views/
+```
