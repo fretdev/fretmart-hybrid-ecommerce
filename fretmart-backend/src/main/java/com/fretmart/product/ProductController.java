@@ -1,7 +1,7 @@
 package com.fretmart.product;
 
-import com.fretmart.dto.ProductRequestDto;
-import com.fretmart.dto.ProductResponseDto;
+import com.fretmart.product.dto.ProductRequestDto;
+import com.fretmart.product.dto.ProductResponseDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

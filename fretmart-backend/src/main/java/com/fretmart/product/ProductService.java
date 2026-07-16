@@ -1,8 +1,9 @@
 package com.fretmart.product;
 
 
-import com.fretmart.dto.ProductRequestDto;
+import com.fretmart.product.dto.ProductRequestDto;
 import com.fretmart.exception.DuplicateProductException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -29,7 +30,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product createProduct(ProductRequestDto request){
+    public Product createProduct(com.fretmart.product.dto.@Valid ProductRequestDto request){
         productRepository.findByNameIgnoreCase(request.getName()).ifPresent(existing->{
             throw new DuplicateProductException(request.getName());
         });
@@ -38,7 +39,7 @@ public class ProductService {
     }
 
     @Transactional
-    public Product updateProduct(Long id,ProductRequestDto request){
+    public Product updateProduct(Long id, com.fretmart.product.dto.@Valid  ProductRequestDto request){
         Product existingProduct = getProductById(id);
         productRepository.findByNameIgnoreCase(request.getName()).ifPresent(existing->{
             if(!existing.getId().equals(id)){
